@@ -48,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
     void Navi()
     {
         dist = Vector3.Distance(playerPoss.position, transform.position);
-        if (dist < 15f)
+        if (dist < 2.5f)
         {
             agent.SetDestination(playerPoss.position);
 
