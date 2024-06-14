@@ -311,7 +311,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.06666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 8d20a1df9ecc9204daacbbe5a5e211b6, type: 2}
   m_BuildHeightMesh: 0
@@ -563,6 +563,7 @@ MonoBehaviour:
   agent: {fileID: 559274478}
   playerPoss: {fileID: 1280910760}
   resetPoss: {x: 0, y: 0, z: 0}
+  spotLight: {fileID: 1331764183}
 --- !u!54 &559274477
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1080,7 +1081,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.9433962, b: 0.19801922, a: 1}
   m_Intensity: 0.92
   m_Range: 500
   m_SpotAngle: 23

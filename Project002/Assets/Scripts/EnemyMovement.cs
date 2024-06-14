@@ -8,14 +8,17 @@ public class EnemyMovement : MonoBehaviour
     public float enemySpeed;
     public float dist;
     public NavMeshAgent agent;
+    float enemyDist;
 
     [SerializeField] Transform playerPoss;
     [SerializeField] Vector3 resetPoss;
+    [SerializeField] Light spotLight;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        spotLight.color = Color.white;
+        enemyDist = 2.5f;
     }
     private void Awake()
     {
@@ -26,7 +29,6 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(playerPoss);
         // MoveTo();
         Navi();
     }
@@ -48,15 +50,19 @@ public class EnemyMovement : MonoBehaviour
     void Navi()
     {
         dist = Vector3.Distance(playerPoss.position, transform.position);
-        if (dist < 2.5f)
+        if (dist < enemyDist)
         {
             agent.SetDestination(playerPoss.position);
+            spotLight.color = Color.red;
+            enemyDist = 10f;
+            transform.LookAt(playerPoss);
 
         }
-        else
+        else if (dist > 10f)
         {
             agent.SetDestination(resetPoss);
-
+            spotLight.color = Color.white;
+            enemyDist = 2.5f;
         }
     }
 }
