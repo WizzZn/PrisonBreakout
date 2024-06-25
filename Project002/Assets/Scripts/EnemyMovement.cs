@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spotLight.color = Color.white;
+        spotLight.color = Color.green;
         enemyDist = 2.5f;
     }
     private void Awake()
@@ -29,24 +29,10 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // MoveTo();
+     
         Navi();
     }
-    void MoveTo()
-    {
-        
-        dist = Vector3.Distance(playerPoss.position, transform.position);
-        if (dist < 5f)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, playerPoss.position, enemySpeed);
-
-        }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, resetPoss, enemySpeed);
-
-        }
-    }
+   
     void Navi()
     {
         dist = Vector3.Distance(playerPoss.position, transform.position);
@@ -65,4 +51,5 @@ public class EnemyMovement : MonoBehaviour
             enemyDist = 2.5f;
         }
     }
+
 }
