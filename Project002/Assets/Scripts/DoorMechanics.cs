@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DoorMechanics : MonoBehaviour
 {
-    public PlayerCollid pc;
-    
 
+
+    public static PlayerCollid instance = new PlayerCollid();
     [SerializeField] GameObject btControll;
     [SerializeField] int keyNeed;
     [SerializeField] int keyHave;
@@ -14,20 +14,20 @@ public class DoorMechanics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        keyHave = instance.key;
+        Debug.Log(keyHave+ "KeyHave");
     }
     private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
            btControll.gameObject.SetActive(true);
-            Debug.Log("Work on");
         }
 
     }
@@ -36,12 +36,11 @@ public class DoorMechanics : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             btControll.gameObject.SetActive(false);
-            Debug.Log("Work off");
         }
     }
     public void btClick()
     {
-        if (pc.key == keyNeed)
+        if (keyNeed == keyHave)
         {
             DoorAnim.SetBool("Open", true);
         }

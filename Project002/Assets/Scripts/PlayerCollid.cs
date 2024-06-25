@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerCollid : MonoBehaviour
 {
     public int key;
+    public Animator DoorAnim;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -19,14 +21,15 @@ public class PlayerCollid : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        /*if (other.gameObject.tag == "Door")
+       /* if (other.gameObject.tag == "Door")
         {
-            DoorAnim.SetBool("Open", true);*//*
+            DoorAnim.SetBool("Open", true);
         }*/
-        if(other.gameObject.tag == "Key")
+        if (other.gameObject.tag == "Key")
         {
             other.gameObject.SetActive(false);
             key += 1;
+            Debug.Log(key+"KEY");
         }
     }
 }
