@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DoorMechanics : MonoBehaviour
 {
+    public PlayerCollid instance;
 
-
-    public static PlayerCollid instance = new PlayerCollid();
+    [SerializeField] TextMeshProUGUI keyText;
     [SerializeField] GameObject btControll;
     [SerializeField] int keyNeed;
     [SerializeField] int keyHave;
@@ -22,14 +23,14 @@ public class DoorMechanics : MonoBehaviour
     {
         keyHave = instance.key;
         Debug.Log(keyHave+ "KeyHave");
+        keyText.text = keyHave.ToString() + "/" + keyNeed.ToString();
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-           btControll.gameObject.SetActive(true);
+            btControll.gameObject.SetActive(true);
         }
-
     }
     private void OnTriggerExit(Collider other)
     {
@@ -43,6 +44,9 @@ public class DoorMechanics : MonoBehaviour
         if (keyNeed == keyHave)
         {
             DoorAnim.SetBool("Open", true);
+            Destroy(gameObject.GetComponent<BoxCollider>());
+            btControll.gameObject.SetActive(false);
+
         }
     }
 }

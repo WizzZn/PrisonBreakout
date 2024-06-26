@@ -48,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
         {
             agent.SetDestination(resetPoss);
             spotLight.color = Color.white;
-            enemyDist = 2.5f;
+            enemyDist = 1.5f;
         }
     }
 
