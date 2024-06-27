@@ -22,7 +22,6 @@ public class DoorMechanics : MonoBehaviour
     void Update()
     {
         keyHave = instance.key;
-        Debug.Log(keyHave+ "KeyHave");
         keyText.text = keyHave.ToString() + "/" + keyNeed.ToString();
     }
     private void OnTriggerEnter(Collider other)

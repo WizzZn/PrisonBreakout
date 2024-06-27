@@ -21,15 +21,11 @@ public class PlayerCollid : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-       /* if (other.gameObject.tag == "Door")
-        {
-            DoorAnim.SetBool("Open", true);
-        }*/
+      
         if (other.gameObject.tag == "Key")
         {
             other.gameObject.SetActive(false);
             key += 1;
-            Debug.Log(key+"KEY");
         }
     }
 }
