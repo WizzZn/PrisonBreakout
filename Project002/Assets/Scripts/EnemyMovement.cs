@@ -12,12 +12,12 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] Transform playerPoss;
     [SerializeField] Vector3 resetPoss;
-    [SerializeField] Light spotLight;
+   // [SerializeField] Light spotLight;
 
     // Start is called before the first frame update
     void Start()
     {
-        spotLight.color = Color.green;
+        //spotLight.color = Color.green;
         enemyDist = 2.5f;
     }
     private void Awake()
@@ -39,7 +39,7 @@ public class EnemyMovement : MonoBehaviour
         if (dist < enemyDist)
         {
             agent.SetDestination(playerPoss.position);
-            spotLight.color = Color.red;
+           // spotLight.color = Color.red;
             enemyDist = 10f;
             transform.LookAt(playerPoss);
 
@@ -47,7 +47,7 @@ public class EnemyMovement : MonoBehaviour
         else if (dist > 10f)
         {
             agent.SetDestination(resetPoss);
-            spotLight.color = Color.white;
+            //spotLight.color = Color.white;
             enemyDist = 2.5f;
         }
     }

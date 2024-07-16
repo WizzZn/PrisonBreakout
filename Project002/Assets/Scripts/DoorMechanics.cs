@@ -29,6 +29,16 @@ public class DoorMechanics : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             btControll.gameObject.SetActive(true);
+           /* if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (keyNeed == keyHave)
+                {
+                    DoorAnim.SetBool("Open", true);
+                    Destroy(gameObject.GetComponent<BoxCollider>());
+                    btControll.gameObject.SetActive(false);
+                    Debug.Log("work");
+                }
+            }*/
         }
     }
     private void OnTriggerExit(Collider other)
